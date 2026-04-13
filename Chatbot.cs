@@ -120,29 +120,38 @@ class Chatbot
 
     void Respond(string input)
     {
-        input = input.ToLower();
+        void Respond(string input)
+        {
+            input = input.ToLower();
 
-        Console.ForegroundColor = textColor;
-
-        if (input.Contains("how are you"))
-        {
-            Console.WriteLine("I am working safely and ready to help you!");
-        }
-        else if (input.Contains("purpose"))
-        {
-            Console.WriteLine("I help you learn cybersecurity safety.");
-        }
-        else if (input.Contains("password"))
-        {
-            Console.WriteLine("Use strong passwords with uppercase, numbers and symbols.");
-        }
-        else if (input.Contains("phishing"))
-        {
-            Console.WriteLine("Phishing is fake messages trying to steal your personal information.");
-        }
-        else
-        {
-            Console.WriteLine("I didn’t understand that. Try asking about passwords or phishing.");
+            if (input.Contains("how are you"))
+            {
+                Console.WriteLine("I am functioning perfectly and ready to keep you safe online.");
+            }
+            else if (input.Contains("purpose") || input.Contains("what do you do"))
+            {
+                Console.WriteLine("My purpose is to educate you about cybersecurity and keep you safe online.");
+            }
+            else if (input.Contains("password"))
+            {
+                Console.WriteLine("Use strong passwords with uppercase letters, numbers, and symbols. Never share them.");
+            }
+            else if (input.Contains("phishing"))
+            {
+                Console.WriteLine("Phishing is when attackers trick you into giving personal information through fake emails or messages.");
+            }
+            else if (input.Contains("safe browsing"))
+            {
+                Console.WriteLine("Always check website URLs, avoid suspicious links, and never download unknown files.");
+            }
+            else if (input.Contains("cyber attack"))
+            {
+                Console.WriteLine("A cyber attack is when hackers try to damage, steal, or access your data illegally.");
+            }
+            else
+            {
+                Console.WriteLine("I didn’t understand that. Try asking about passwords, phishing, or safe browsing.");
+            }
         }
 
         Console.ResetColor();
