@@ -40,7 +40,7 @@ class Chatbot
 
     void ShowHeader()
     {
-        Console.ForegroundColor = ConsoleColor.Magenta;
+        Console.ForegroundColor = titleColor;
 
         Console.WriteLine("=====================================");
         Console.WriteLine("   CYBERSECURITY AWARENESS CHATBOT   ");
@@ -75,6 +75,10 @@ class Chatbot
     void AskUserName()
     {
         Console.ForegroundColor = highlight;
+        Console.WriteLine("\nWelcome to the Cybersecurity Awareness Chatbot");
+        Console.ResetColor();
+
+        Console.ForegroundColor = highlight;
         Console.Write("Enter your name: ");
         Console.ResetColor();
 
@@ -108,9 +112,13 @@ class Chatbot
                 continue;
             }
 
-            if (input.ToLower() == "exit")
+            input = input.ToLower();
+
+            if (input == "exit")
             {
-                Console.WriteLine("Stay safe online " + userName + "!");
+                Console.ForegroundColor = accentColor;
+                Console.WriteLine("Goodbye " + userName + ". Stay safe and protect your digital world.");
+                Console.ResetColor();
                 break;
             }
 
@@ -120,40 +128,33 @@ class Chatbot
 
     void Respond(string input)
     {
-        void Respond(string input)
+        if (input.Contains("how are you"))
         {
-            input = input.ToLower();
-
-            if (input.Contains("how are you"))
-            {
-                Console.WriteLine("I am functioning perfectly and ready to keep you safe online.");
-            }
-            else if (input.Contains("purpose") || input.Contains("what do you do"))
-            {
-                Console.WriteLine("My purpose is to educate you about cybersecurity and keep you safe online.");
-            }
-            else if (input.Contains("password"))
-            {
-                Console.WriteLine("Use strong passwords with uppercase letters, numbers, and symbols. Never share them.");
-            }
-            else if (input.Contains("phishing"))
-            {
-                Console.WriteLine("Phishing is when attackers trick you into giving personal information through fake emails or messages.");
-            }
-            else if (input.Contains("safe browsing"))
-            {
-                Console.WriteLine("Always check website URLs, avoid suspicious links, and never download unknown files.");
-            }
-            else if (input.Contains("cyber attack"))
-            {
-                Console.WriteLine("A cyber attack is when hackers try to damage, steal, or access your data illegally.");
-            }
-            else
-            {
-                Console.WriteLine("I didn’t understand that. Try asking about passwords, phishing, or safe browsing.");
-            }
+            Console.WriteLine("I am functioning perfectly and ready to keep you safe online.");
         }
-
-        Console.ResetColor();
+        else if (input.Contains("purpose") || input.Contains("what do you do"))
+        {
+            Console.WriteLine("My purpose is to educate you about cybersecurity and keep you safe online.");
+        }
+        else if (input.Contains("password"))
+        {
+            Console.WriteLine("Use strong passwords with uppercase letters, numbers, and symbols. Never share them.");
+        }
+        else if (input.Contains("phishing"))
+        {
+            Console.WriteLine("Phishing is when attackers trick you into giving personal information through fake emails or messages.");
+        }
+        else if (input.Contains("safe browsing"))
+        {
+            Console.WriteLine("Always check website URLs, avoid suspicious links, and never download unknown files.");
+        }
+        else if (input.Contains("cyber attack"))
+        {
+            Console.WriteLine("A cyber attack is when hackers try to damage, steal, or access your data illegally.");
+        }
+        else
+        {
+            Console.WriteLine("I didn’t understand that. Try asking about passwords, phishing, or safe browsing.");
+        }
     }
 }
